@@ -10,12 +10,12 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `long\|int` | Optional | - |
-| `username` | `string` | Optional | - |
-| `first_name` | `string` | Optional | - |
-| `last_name` | `string` | Optional | - |
-| `email` | `string` | Optional | - |
-| `password` | `string` | Optional | - |
-| `phone` | `string` | Optional | - |
+| `username` | `str` | Optional | - |
+| `first_name` | `str` | Optional | - |
+| `last_name` | `str` | Optional | - |
+| `email` | `str` | Optional | - |
+| `password` | `str` | Optional | - |
+| `phone` | `str` | Optional | - |
 | `user_status` | `int` | Optional | User Status |
 
 ## Example (as JSON)

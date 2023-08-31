@@ -20,9 +20,9 @@ class Pet(object):
     Attributes:
         id (long|int): TODO: type description here.
         category (Category): TODO: type description here.
-        name (string): TODO: type description here.
-        photo_urls (list of string): TODO: type description here.
-        tags (list of Tag): TODO: type description here.
+        name (str): TODO: type description here.
+        photo_urls (List[str]): TODO: type description here.
+        tags (List[Tag]): TODO: type description here.
         status (StatusEnum): pet status in the store
 
     """
@@ -83,7 +83,6 @@ class Pet(object):
             return None
 
         # Extract variables from the dictionary
-
         name = dictionary.get("name") if dictionary.get("name") else None
         photo_urls = dictionary.get("photoUrls") if dictionary.get("photoUrls") else None
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP

@@ -17,8 +17,8 @@ class ApiResponse(object):
 
     Attributes:
         code (int): TODO: type description here.
-        mtype (string): TODO: type description here.
-        message (string): TODO: type description here.
+        mtype (str): TODO: type description here.
+        message (str): TODO: type description here.
 
     """
 
@@ -67,7 +67,6 @@ class ApiResponse(object):
             return None
 
         # Extract variables from the dictionary
-
         code = dictionary.get("code") if dictionary.get("code") else APIHelper.SKIP
         mtype = dictionary.get("type") if dictionary.get("type") else APIHelper.SKIP
         message = dictionary.get("message") if dictionary.get("message") else APIHelper.SKIP

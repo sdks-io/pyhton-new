@@ -68,6 +68,32 @@ class StoreController(BaseController):
             .local_error('400', 'Invalid Order', APIException)
         ).execute()
 
+    def get_inventory(self):
+        """Does a GET request to /store/inventory.
+
+        Returns a map of status codes to quantities
+
+        Returns:
+            Dict[str, int]: Response from the API. successful operation
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.SERVER1)
+            .path('/store/inventory')
+            .http_method(HttpMethodEnum.GET)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+        ).execute()
+
     def get_order_by_id(self,
                         order_id):
         """Does a GET request to /store/order/{orderId}.
@@ -139,30 +165,4 @@ class StoreController(BaseController):
                             .value(order_id)
                             .should_encode(True))
             .auth(Single('global'))
-        ).execute()
-
-    def get_inventory(self):
-        """Does a GET request to /store/inventory.
-
-        Returns a map of status codes to quantities
-
-        Returns:
-            dict: Response from the API. successful operation
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.SERVER1)
-            .path('/store/inventory')
-            .http_method(HttpMethodEnum.GET)
-            .auth(Single('global'))
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
         ).execute()

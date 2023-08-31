@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `code` | `int` | Optional | - |
-| `mtype` | `string` | Optional | - |
-| `message` | `string` | Optional | - |
+| `mtype` | `str` | Optional | - |
+| `message` | `str` | Optional | - |
 
 ## Example (as JSON)
 

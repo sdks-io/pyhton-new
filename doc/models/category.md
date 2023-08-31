@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `long\|int` | Optional | - |
-| `name` | `string` | Optional | - |
+| `name` | `str` | Optional | - |
 
 ## Example (as JSON)
 

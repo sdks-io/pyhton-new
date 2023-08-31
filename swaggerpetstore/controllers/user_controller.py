@@ -34,7 +34,7 @@ class UserController(BaseController):
         Creates list of users with given input array
 
         Args:
-            body (list of User): List of user object
+            body (List[User]): List of user object
 
         Returns:
             void: Response from the API.
@@ -60,39 +60,6 @@ class UserController(BaseController):
             .auth(Single('global'))
         ).execute()
 
-    def create_users_with_list_input(self,
-                                     body):
-        """Does a POST request to /user/createWithList.
-
-        Creates list of users with given input array
-
-        Args:
-            body (list of User): List of user object
-
-        Returns:
-            void: Response from the API.
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.SERVER1)
-            .path('/user/createWithList')
-            .http_method(HttpMethodEnum.POST)
-            .body_param(Parameter()
-                        .value(body))
-            .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Single('global'))
-        ).execute()
-
     def get_user_by_name(self,
                          username):
         """Does a GET request to /user/{username}.
@@ -100,8 +67,8 @@ class UserController(BaseController):
         Get user by user name
 
         Args:
-            username (string): The name that needs to be fetched. Use user1
-                for testing.
+            username (str): The name that needs to be fetched. Use user1 for
+                testing.
 
         Returns:
             User: Response from the API. successful operation
@@ -134,45 +101,6 @@ class UserController(BaseController):
             .local_error('404', 'User not found', APIException)
         ).execute()
 
-    def update_user(self,
-                    username,
-                    body):
-        """Does a PUT request to /user/{username}.
-
-        This can only be done by the logged in user.
-
-        Args:
-            username (string): name that need to be updated
-            body (User): Updated user object
-
-        Returns:
-            void: Response from the API.
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.SERVER1)
-            .path('/user/{username}')
-            .http_method(HttpMethodEnum.PUT)
-            .template_param(Parameter()
-                            .key('username')
-                            .value(username)
-                            .should_encode(True))
-            .body_param(Parameter()
-                        .value(body))
-            .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Single('global'))
-        ).execute()
-
     def delete_user(self,
                     username):
         """Does a DELETE request to /user/{username}.
@@ -180,7 +108,7 @@ class UserController(BaseController):
         This can only be done by the logged in user.
 
         Args:
-            username (string): The name that needs to be deleted
+            username (str): The name that needs to be deleted
 
         Returns:
             void: Response from the API.
@@ -212,11 +140,11 @@ class UserController(BaseController):
         Logs user into the system
 
         Args:
-            username (string): The user name for login
-            password (string): The password for login in clear text
+            username (str): The user name for login
+            password (str): The password for login in clear text
 
         Returns:
-            string: Response from the API. successful operation
+            str: Response from the API. successful operation
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -241,6 +169,78 @@ class UserController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .local_error('400', 'Invalid username/password supplied', APIException)
+        ).execute()
+
+    def create_users_with_list_input(self,
+                                     body):
+        """Does a POST request to /user/createWithList.
+
+        Creates list of users with given input array
+
+        Args:
+            body (List[User]): List of user object
+
+        Returns:
+            void: Response from the API.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.SERVER1)
+            .path('/user/createWithList')
+            .http_method(HttpMethodEnum.POST)
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).execute()
+
+    def update_user(self,
+                    username,
+                    body):
+        """Does a PUT request to /user/{username}.
+
+        This can only be done by the logged in user.
+
+        Args:
+            username (str): name that need to be updated
+            body (User): Updated user object
+
+        Returns:
+            void: Response from the API.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.SERVER1)
+            .path('/user/{username}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('username')
+                            .value(username)
+                            .should_encode(True))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
         ).execute()
 
     def logout_user(self):

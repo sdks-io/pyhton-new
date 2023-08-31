@@ -17,7 +17,7 @@ class Category(object):
 
     Attributes:
         id (long|int): TODO: type description here.
-        name (string): TODO: type description here.
+        name (str): TODO: type description here.
 
     """
 
@@ -61,7 +61,6 @@ class Category(object):
             return None
 
         # Extract variables from the dictionary
-
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
         name = dictionary.get("name") if dictionary.get("name") else APIHelper.SKIP
         # Return an object of this model

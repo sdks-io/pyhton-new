@@ -61,7 +61,7 @@ class Order(object):
         if quantity is not APIHelper.SKIP:
             self.quantity = quantity 
         if ship_date is not APIHelper.SKIP:
-            self.ship_date = APIHelper.RFC3339DateTime(ship_date) if ship_date else None 
+            self.ship_date = APIHelper.apply_datetime_converter(ship_date, APIHelper.RFC3339DateTime) if ship_date else None 
         if status is not APIHelper.SKIP:
             self.status = status 
         if complete is not APIHelper.SKIP:
@@ -85,7 +85,6 @@ class Order(object):
             return None
 
         # Extract variables from the dictionary
-
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
         pet_id = dictionary.get("petId") if dictionary.get("petId") else APIHelper.SKIP
         quantity = dictionary.get("quantity") if dictionary.get("quantity") else APIHelper.SKIP

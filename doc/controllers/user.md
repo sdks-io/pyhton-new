@@ -15,11 +15,11 @@ user_controller = client.user
 ## Methods
 
 * [Create Users With Array Input](../../doc/controllers/user.md#create-users-with-array-input)
-* [Create Users With List Input](../../doc/controllers/user.md#create-users-with-list-input)
 * [Get User by Name](../../doc/controllers/user.md#get-user-by-name)
-* [Update User](../../doc/controllers/user.md#update-user)
 * [Delete User](../../doc/controllers/user.md#delete-user)
 * [Login User](../../doc/controllers/user.md#login-user)
+* [Create Users With List Input](../../doc/controllers/user.md#create-users-with-list-input)
+* [Update User](../../doc/controllers/user.md#update-user)
 * [Logout User](../../doc/controllers/user.md#logout-user)
 * [Create User](../../doc/controllers/user.md#create-user)
 
@@ -37,7 +37,7 @@ def create_users_with_array_input(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`List of User`](../../doc/models/user.md) | Body, Required | List of user object |
+| `body` | [`List[User]`](../../doc/models/user.md) | Body, Required | List of user object |
 
 ## Response Type
 
@@ -61,43 +61,6 @@ print(result)
 | Default | successful operation | `APIException` |
 
 
-# Create Users With List Input
-
-Creates list of users with given input array
-
-```python
-def create_users_with_list_input(self,
-                                body)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`List of User`](../../doc/models/user.md) | Body, Required | List of user object |
-
-## Response Type
-
-`void`
-
-## Example Usage
-
-```python
-body = [
-    User()
-]
-
-result = user_controller.create_users_with_list_input(body)
-print(result)
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| Default | successful operation | `APIException` |
-
-
 # Get User by Name
 
 Get user by user name
@@ -111,7 +74,7 @@ def get_user_by_name(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `username` | `string` | Template, Required | The name that needs to be fetched. Use user1 for testing. |
+| `username` | `str` | Template, Required | The name that needs to be fetched. Use user1 for testing. |
 
 ## Response Type
 
@@ -134,49 +97,6 @@ print(result)
 | 404 | User not found | `APIException` |
 
 
-# Update User
-
-This can only be done by the logged in user.
-
-```python
-def update_user(self,
-               username,
-               body)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `username` | `string` | Template, Required | name that need to be updated |
-| `body` | [`User`](../../doc/models/user.md) | Body, Required | Updated user object |
-
-## Response Type
-
-`void`
-
-## Example Usage
-
-```python
-username = 'username0'
-
-body = User()
-
-result = user_controller.update_user(
-    username,
-    body
-)
-print(result)
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Invalid user supplied | `APIException` |
-| 404 | User not found | `APIException` |
-
-
 # Delete User
 
 This can only be done by the logged in user.
@@ -190,7 +110,7 @@ def delete_user(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `username` | `string` | Template, Required | The name that needs to be deleted |
+| `username` | `str` | Template, Required | The name that needs to be deleted |
 
 ## Response Type
 
@@ -227,12 +147,12 @@ def login_user(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `username` | `string` | Query, Required | The user name for login |
-| `password` | `string` | Query, Required | The password for login in clear text |
+| `username` | `str` | Query, Required | The user name for login |
+| `password` | `str` | Query, Required | The password for login in clear text |
 
 ## Response Type
 
-`string`
+`str`
 
 ## Example Usage
 
@@ -253,6 +173,86 @@ print(result)
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
 | 400 | Invalid username/password supplied | `APIException` |
+
+
+# Create Users With List Input
+
+Creates list of users with given input array
+
+```python
+def create_users_with_list_input(self,
+                                body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`List[User]`](../../doc/models/user.md) | Body, Required | List of user object |
+
+## Response Type
+
+`void`
+
+## Example Usage
+
+```python
+body = [
+    User()
+]
+
+result = user_controller.create_users_with_list_input(body)
+print(result)
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| Default | successful operation | `APIException` |
+
+
+# Update User
+
+This can only be done by the logged in user.
+
+```python
+def update_user(self,
+               username,
+               body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `username` | `str` | Template, Required | name that need to be updated |
+| `body` | [`User`](../../doc/models/user.md) | Body, Required | Updated user object |
+
+## Response Type
+
+`void`
+
+## Example Usage
+
+```python
+username = 'username0'
+
+body = User()
+
+result = user_controller.update_user(
+    username,
+    body
+)
+print(result)
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Invalid user supplied | `APIException` |
+| 404 | User not found | `APIException` |
 
 
 # Logout User

@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `long\|int` | Optional | - |
-| `photo_urls` | `List of string` | Required | - |
-| `name` | `string` | Optional | - |
+| `photo_urls` | `List[str]` | Required | - |
+| `name` | `str` | Optional | - |
 
 ## Example (as JSON)
 

@@ -20,9 +20,9 @@ class Status1Enum(object):
         DELIVERED: TODO: type description here.
 
     """
-
     PLACED = 'placed'
 
     APPROVED = 'approved'
 
     DELIVERED = 'delivered'
+

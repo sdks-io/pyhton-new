@@ -20,9 +20,9 @@ class StatusEnum(object):
         SOLD: TODO: type description here.
 
     """
-
     AVAILABLE = 'available'
 
     PENDING = 'pending'
 
     SOLD = 'sold'
+

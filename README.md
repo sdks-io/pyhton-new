@@ -13,15 +13,15 @@ The package is compatible with Python versions `3 >=3.7, <= 3.11`.
 Install the package from PyPi using the following pip command:
 
 ```python
-pip install repo-test-sdk==1.1.9
+pip install repo-test-sdk==2.3.363
 ```
 
 You can also view the package at:
-https://pypi.python.org/pypi/repo-test-sdk/1.1.9
+https://pypi.python.org/pypi/repo-test-sdk/2.3.363
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -36,7 +36,7 @@ The following parameters are configurable for the API Client:
 | `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
 | `retry_statuses` | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
-| `password` | `string` |  |
+| `password` | `str` |  |
 
 The API client can be initialized as follows:
 
@@ -55,13 +55,13 @@ This API uses `Custom Authentication`.
 
 ## List of APIs
 
-* [Pet](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/controllers/pet.md)
-* [Store](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/controllers/store.md)
-* [User](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/controllers/user.md)
+* [Pet](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/controllers/pet.md)
+* [Store](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/controllers/store.md)
+* [User](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/controllers/user.md)
 
 ## Classes Documentation
 
-* [Utility Classes](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/utility-classes.md)
-* [HttpResponse](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/http-response.md)
-* [HttpRequest](https://www.github.com/sdks-io/pyhton-new/tree/1.1.9/doc/http-request.md)
+* [Utility Classes](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/utility-classes.md)
+* [HttpResponse](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/http-response.md)
+* [HttpRequest](https://www.github.com/sdks-io/pyhton-new/tree/2.3.363/doc/http-request.md)
 

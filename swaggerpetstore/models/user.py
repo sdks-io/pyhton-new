@@ -17,12 +17,12 @@ class User(object):
 
     Attributes:
         id (long|int): TODO: type description here.
-        username (string): TODO: type description here.
-        first_name (string): TODO: type description here.
-        last_name (string): TODO: type description here.
-        email (string): TODO: type description here.
-        password (string): TODO: type description here.
-        phone (string): TODO: type description here.
+        username (str): TODO: type description here.
+        first_name (str): TODO: type description here.
+        last_name (str): TODO: type description here.
+        email (str): TODO: type description here.
+        password (str): TODO: type description here.
+        phone (str): TODO: type description here.
         user_status (int): User Status
 
     """
@@ -97,7 +97,6 @@ class User(object):
             return None
 
         # Extract variables from the dictionary
-
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
         username = dictionary.get("username") if dictionary.get("username") else APIHelper.SKIP
         first_name = dictionary.get("firstName") if dictionary.get("firstName") else APIHelper.SKIP

@@ -13,9 +13,9 @@ store_controller = client.store
 ## Methods
 
 * [Place Order](../../doc/controllers/store.md#place-order)
+* [Get Inventory](../../doc/controllers/store.md#get-inventory)
 * [Get Order by Id](../../doc/controllers/store.md#get-order-by-id)
 * [Delete Order](../../doc/controllers/store.md#delete-order)
-* [Get Inventory](../../doc/controllers/store.md#get-inventory)
 
 
 # Place Order
@@ -51,6 +51,26 @@ print(result)
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
 | 400 | Invalid Order | `APIException` |
+
+
+# Get Inventory
+
+Returns a map of status codes to quantities
+
+```python
+def get_inventory(self)
+```
+
+## Response Type
+
+`Dict[str, int]`
+
+## Example Usage
+
+```python
+result = store_controller.get_inventory()
+print(result)
+```
 
 
 # Get Order by Id
@@ -123,24 +143,4 @@ print(result)
 |  --- | --- | --- |
 | 400 | Invalid ID supplied | `APIException` |
 | 404 | Order not found | `APIException` |
-
-
-# Get Inventory
-
-Returns a map of status codes to quantities
-
-```python
-def get_inventory(self)
-```
-
-## Response Type
-
-`dict`
-
-## Example Usage
-
-```python
-result = store_controller.get_inventory()
-print(result)
-```
 

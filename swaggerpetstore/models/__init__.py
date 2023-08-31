@@ -1,11 +1,11 @@
 __all__ = [
+    'pet',
     'api_response',
     'category',
-    'pet',
-    'tag',
     'order',
+    'tag',
     'user',
-    'status_enum',
     'status_1_enum',
     'status_2_enum',
+    'status_enum',
 ]
